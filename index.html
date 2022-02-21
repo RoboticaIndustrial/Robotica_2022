@@ -19,7 +19,11 @@
                 <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Cuadernos</a>
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Descargas</button>
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Ocultar elementos</button>
-              </p>
+                <div class="form-check form-switch">
+                    <input onclick="modoOscuro()" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+                    <label id="etiqueta1" class="form-check-label" for="flexSwitchCheckChecked">Modo oscuro</label>
+                </div>
+            </p>
               <div class="row">
                 <div class="col">
                   <div class="collapse multi-collapse" id="multiCollapseExample1">
@@ -142,37 +146,49 @@
 </div>
 
 
+    <style>
+    .oscuro{
+        background-color: black;
+        color: white;
+    }
+    </style>
 
-
-
-
-
-
-    <div class="container">
-        <h1> Robotica industrial</h1>
-
-        <h2> Algunos archivos</h2>
-
-        <h4> (05) Tipos de Datos compuestos</h4>
-        <a href="https://github.com/RoboticaIndustrial/Robotica_2022/blob/master/Intro%20python/(05)Tipos%20De%20Datos%20Compuestos.ipynb">Tipos de Datos compuestos</a>
-        <a href=".Intro pyhton\(05)Tipos De Datos Compuestos.ipynb" download="(05) Tipos de Datos Compuestos.ipynb">Descargar </a>
-
-        <h4> (06) Funciones en python</h4>
-        <a href="https://github.com/RoboticaIndustrial/Robotica_2022/blob/master/Intro%20python/(06)%20Funciones.ipynb">Funciones </a>
-        <a href=".Intro pyhton\(06) Funciones.ipynb" download="(06) Funciones.ipynb">Descargar </a>
-
-        <h4> (07) Vectores</h4>
-        <a href="https://github.com/RoboticaIndustrial/Robotica_2022/blob/master/Intro%20python/(07)%20Vectores.ipynb" download="(07) Vectores.ipynb">Vectores</a>
-        <a href=".Intro pyhton\(07) Vectores.ipynb" download="(07) Vectores.ipynb">Descargar</a>
-
-        <h4> (08) Vectores</h4>
-        <a href=".https://github.com/RoboticaIndustrial/Robotica_2022/blob/master/Intro%20python/(08)%20Graficas.ipynb" download="(08) Graficas.ipynb">Graficas</a>
-        <a href=".Intro pyhton\(08) Graficas.ipynb" download="(08) Graficas.ipynb">Descargar</a>
-
-    </div>
-
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <script>
+        var opModoOscuro= false;
+        
+        etiqueta1 = document.getElementById("etiqueta1");
+        cards = document.getElementsByClassName("card");
+        accordion_item = document.getElementsByClassName("accordion-item");
+        accordion_button = document.getElementsByClassName("accordion-button");
+        collapsed = document.getElementsByClassName("collapsed");
+
+   
+        function forarrayElements(array){
+            for (let item of array ){
+                item.classList.toggle("oscuro");
+            }
+        }
+
+        function modoOscuro(){
+        
+            document.body.classList.toggle("oscuro");
+            
+            
+            forarrayElements(cards);
+            forarrayElements(accordion_item);
+            forarrayElements(accordion_button);
+            //forarrayElements(collapsed);
+
+        }
+    
+        //.card, .accordion-item, .accordion-button, .collapsed{
+        //    background-color: black;
+        //    color: white;
+        //}
+
+    </script>
 </body>
 </html>
